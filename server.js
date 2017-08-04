@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var override = require("method-override");
 var path = require("path");
 var hb = require("express-handlebars");
+var db = require("./models");
 
 
 var port = 3000;
@@ -19,4 +20,8 @@ var routes = require("./controllers/bController.js");
 
 app.use("/", routes);
 
-app.listen(port);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(port, function() {
+    console.log("App listening on PORT " + port);
+  });
+});
