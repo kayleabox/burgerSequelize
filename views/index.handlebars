@@ -1,0 +1,185 @@
+<!-- page header -->
+<div class="container">
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-12">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary">
+            <div class="title has-text-centered"><strong> Burgers!!!! </strong></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        
+        <article class="tile is-child notification is-bun top-bun shadow">
+          <p class="title is-4 has-text-centered"><strong> Uneaten Burgers </strong></p>
+        </article>
+        
+        <article class="tile is-child">
+          <ul>
+            {{#each burgers}} {{#unless this.devoured}}
+            <li>
+
+              <article class="tile is-child is-12 notification is-patty shadow">
+                <p>{{this.burger}} - {{this.customer}}</p>
+              </article>
+              
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="1">
+                <button type="submit" class=" tile is-child is-12 button is-lettuce is-small shadow">EAT ME!</button>
+              </form>
+
+              <article class="tile is-child is-12 shadow">
+                {{> burgers/delete}}
+              </article>
+
+            </li>
+            {{/unless}} {{/each}}
+          </ul>
+
+        </article>
+        <article class="tile is-child notification is-bun bottom-bun shadow">
+          <p class="title is-4 has-text-centered">Don't see your burger... order it!</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile is-vertical is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical is-devoured">
+        <article class="tile is-child notification is-bun top-bun shadow">
+          <p class="title is-4 has-text-centered"><strong> Devoured Burgers </strong></p>
+        </article>
+
+        <article class="tile is-child">
+          <ul>
+            {{#each burgers}} {{#if this.devoured}}
+            <li>
+              <article class="tile is-child is-12 notification is-patty shadow">
+                <p>{{this.burger}} - {{this.customer}}</p>
+              </article>
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="0">
+                <button type="submit" class="tile is-child is-12 button is-lettuce is-small shadow">AGAIN!</button>
+              </form>
+              <article class="tile is-child is-12 shadow">
+                {{> burgers/delete}}
+              </article>
+ 
+            </li>
+            {{/if}} {{/each}}
+          </ul>
+        </article>
+
+        <article class="tile is-child notification is-bun bottom-bun shadow">
+          <p class="title is-4 has-text-centered">More burgers!!!</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tile is-ancestor">
+  
+  <div class="tile is-vertical is-12">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-warning">
+          <p class="title is-4 has-text-centered"><strong> Order a Burger </strong></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+        
+
+<div class="tile is-ancester">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+          <div class="tile is-child notification is-warning">
+          <form class="create-update-form" action="/" method="POST">
+
+            <div class="tile is-parent form-group">
+              <article class="tile is-child is-2">
+                <label for="ca">Burger:</label>
+              </article>
+              <article class="tile is-child is-10">
+                <input type="text" class="input is-primary is-small" id="ca" name="burger">
+              </article>
+            </div>
+
+            <div class="tile is-parent form-group">
+              <article class="tile is-child is-2">
+                <label for="cust">Customer:</label>
+              </article>
+              <article class="tile is-child is-10">
+                <input type="text" class="input is-primary is-small" id="cust" name="customer">
+              </article>
+            </div> 
+
+            <div class="has-text-centered">
+              <button type="submit" class="button is-primary is-small" >Order</button>
+              <a id="customize" class="button is-info is-small modal-button" data-target="cust-modal" >Customize</a>
+          
+              {{>burgers/customize}}
+            
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="tile is-vertical is-4">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <div class="tile is-child notification is-warning">
+          <p class="title is-5">Log In to Save a Burger</p>
+            <form class="log-in-form" action="/login" method="GET">
+
+            <div class="tile is-parent form-group">
+              <article class="tile is-child is-4">
+                <label for="un"> Name:</label>
+              </article>
+              <article class="tile is-child is-8">
+                <input type="text" class="input is-primary is-small" id="un" name="user-name">
+              </article>
+            </div>
+
+            <div class="tile is-parent form-group">
+              <article class="tile is-child is-5">
+                <label for="pword">Password:</label>
+              </article>
+              <article class="tile is-child is-7">
+                <input type="text" class="input is-primary is-small" id="pword" name="password">
+              </article>
+            </div> 
+
+            <div class="has-text-centered">
+            <button type="submit" class="button log-in-btn is-primary is-small" >Log In</button>
+            <a id="create-acc-btn" class="button is-info is-small modal-button"  data-target="create-acc-modal" >Create</a>
+          
+              {{>burgers/create-acc}}
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+</div>
+
+<script type="text/javascript" src="/assets/js/index.js"></script>   

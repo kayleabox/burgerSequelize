@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS burgers_sequelize;
+
+USE burgers_sequelize;
+
+CREATE TABLE IF NOT EXISTS burgers (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    burger VARCHAR(100) NOT NULL,
+    customer VARCHAR(100) NOT NULL,
+    devoured BOOLEAN NOT NULL DEFAULT FALSE,
+    date TIMESTAMP
+)

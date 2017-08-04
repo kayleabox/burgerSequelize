@@ -1,0 +1,105 @@
+body{
+    background-color: #ededed;
+    margin:0px;
+}
+
+.container{
+    max-width: 1000px;
+    margin-top:30px;
+}
+
+.is-patty{
+    background-color: #591700;
+    color: white;
+    border-radius: 50px;
+}
+
+.is-lettuce{
+    background-color: #7ae014;
+    color: #48840d;
+    border:none;
+}
+
+.is-tomato{
+    background-color:#ff0000;
+    color:#ffa8a8;
+}
+
+.is-onion{
+    background-color:#4f003d;
+    color:#ffc4f1;
+    
+}
+
+.is-pickles{
+    background-color:#244900;
+    color:#bafc79;
+    
+}
+
+.is-bacon{
+    background-color:#871400;
+    color:#ff6b51;    
+}
+
+.is-beef{
+    background-color:#632400;
+    color:#ffe5d6;    
+}
+
+.is-chicken{
+    background-color:#ffbe70;
+    color:#ff8b00;    
+}
+
+.is-bean{
+    background-color:#301300;
+    color:#ffffff;    
+}
+
+.is-mayo{
+    background-color:;
+    color:;    
+}
+
+.is-mustard{
+    background-color:#ba8b00;
+    color:#dbb648;
+}
+
+.is-ketchup{
+    background-color:#af0000;
+    color:#ffb7b7;
+}
+
+.is-devoured{
+    opacity: .6;
+}
+
+.top-bun{
+    border-top-left-radius: 170px;
+    border-top-right-radius: 170px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.bottom-bun{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.is-bun{
+    background-color: #f9ca6b;
+}
+
+.is-cheese{
+    background-color:#ffc402;
+}
+
+.shadow{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
